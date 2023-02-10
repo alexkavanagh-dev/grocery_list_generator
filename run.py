@@ -25,3 +25,31 @@ def generate_dinners_string():
         dinners_string += f"{i + 1} - {dinner_names[i]}\n"
 
     return dinners_string
+
+
+def get_dinner_picks(dinners_string):
+    while True:
+        print("Please use the corresponding numbers to select your dinners for the next 7 days")
+        print("Your input must be seven numbers seperated by commas.\n")
+        print("Example input: 1,2,3,4,5,6,7\n")
+        print(dinners_string)
+
+        dinners_input = input('Enter selections here:')
+
+        dinners_split = dinners_input.split(',')
+
+    dinners_int = [int(dinner) for dinner in dinners_split]
+
+    return dinners_int
+
+
+def main():
+    """
+    Run all program fuctions
+    """
+    dinners_string = generate_dinners_string()
+    dinner_picks = get_dinner_picks(dinners_string)
+
+
+print("Welcome to my shopping list generator!\n")
+main()
