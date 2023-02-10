@@ -14,3 +14,14 @@ SHEET = GSPREAD_CLIENT.open('grocery_list_generator')
 
 ingredients = SHEET.worksheet('INGREDIENT')
 quantities = SHEET.worksheet('QUANTITY')
+
+
+def generate_dinners_string():
+    dinner_names = ingredients.row_values(1)
+
+    dinners_string = ""
+
+    for i in range(len(dinner_names)):
+        dinners_string += f"{i + 1} - {dinner_names[i]}\n"
+
+    return dinners_string
