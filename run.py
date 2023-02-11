@@ -71,12 +71,38 @@ def validate_csv(csv_input):
     return True
 
 
+def calculate_shopping_list(dinner_picks):
+
+    shopping_list = dict()
+
+    print("Calculating Shopping list...\n")
+
+    for dinner in dinner_picks:
+
+        ing_data = ingredients.col_values(dinner)
+        quan_data = quantities.col_values(dinner)
+
+        ing_data.pop(0)
+        quan_data.pop(0)
+
+        recipe_dict = dict(zip(ing_data, quan_data))
+
+        for ing, quan in recipe_dict.items():
+            if ing in shopping_list:
+                shopping_list[ing] = shopping_list.get(ing) + int(quan)
+            else:
+                shopping_list[ing] = int(quan)
+
+    return shopping_list
+
+
 def main():
     """
     Run all program fuctions
     """
     dinners_string = generate_dinners_string()
     dinner_picks = get_dinner_picks(dinners_string)
+    shopping_list = calculate_shopping_list(dinner_picks)
 
 
 print("Welcome to my shopping list generator!\n")
