@@ -38,9 +38,37 @@ def get_dinner_picks(dinners_string):
 
         dinners_split = dinners_input.split(',')
 
+        if validate_csv(dinners_split):
+            print("\nInput is valid!\n")
+            break
+
     dinners_int = [int(dinner) for dinner in dinners_split]
 
     return dinners_int
+
+
+def validate_csv(csv_input):
+    print("Validating input...\n")
+    try:
+        for value in csv_input:
+            int(value)
+
+        if len(csv_input) != 7:
+            raise ValueError(
+                f"You must enter exactly 7 choices, you entered {len(csv_input)}"
+            )
+
+        for value in csv_input:
+            if int(value) < 1 or int(value) > len(ingredients.row_values(1)):
+                raise ValueError(
+                    f"Input must correspond with options listed, {value} is not an option"
+                )
+
+    except ValueError as e:
+        print(f"Input was not valid: {e}, please try again.\n")
+        return False
+
+    return True
 
 
 def main():
