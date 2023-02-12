@@ -96,6 +96,13 @@ def calculate_shopping_list(dinner_picks):
     return shopping_list
 
 
+def print_shopping_list(shopping_list):
+
+    print("Your shopping list will be printed below:\n")
+    for x, y in shopping_list.items():
+        print(x + " : " + str(y))
+
+
 def main():
     """
     Run all program fuctions
@@ -103,6 +110,7 @@ def main():
     dinners_string = generate_dinners_string()
     dinner_picks = get_dinner_picks(dinners_string)
     shopping_list = calculate_shopping_list(dinner_picks)
+    print_shopping_list(shopping_list)
 
 
 print("Welcome to my shopping list generator!\n")
