@@ -50,9 +50,6 @@ def get_dinner_picks(dinners_string):
 def validate_csv(csv_input):
     print("Validating input...\n")
     try:
-        for value in csv_input:
-            int(value)
-
         if len(csv_input) != 7:
             raise ValueError(
                 f"You must enter exactly 7 choices, you entered {len(csv_input)}"
