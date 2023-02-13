@@ -29,7 +29,8 @@ def generate_dinners_string():
 
 def get_dinner_picks(dinners_string):
     while True:
-        print("Please use the corresponding numbers to select your dinners for the next 7 days")
+        print("Please use the corresponding numbers to select your dinners for"
+              " the next 7 days")
         print("Your input must be seven numbers seperated by commas.\n")
         print("Example input: 1,2,3,4,5,6,7\n")
         print(dinners_string)
@@ -52,13 +53,14 @@ def validate_csv(csv_input):
     try:
         if len(csv_input) != 7:
             raise ValueError(
-                f"You must enter exactly 7 choices, you entered {len(csv_input)}"
+                f"You must enter only 7 choices, you entered {len(csv_input)}"
             )
 
         for value in csv_input:
             if int(value) < 1 or int(value) > len(ingredients.row_values(1)):
                 raise ValueError(
-                    f"Input must correspond with options listed, {value} is not an option"
+                    f"Input must correspond with options listed, {value} is "
+                    "not an option"
                 )
 
     except ValueError as e:
