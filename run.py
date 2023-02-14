@@ -48,7 +48,7 @@ def get_dinner_picks(dinners_string):
     """
     while True:
         print("Please use the corresponding numbers to select your dinners for"
-              " the next 7 days")
+              " the next 7 days.")
         print("Your input must be seven numbers seperated by commas.\n")
         print("Example input: 1,2,3,4,5,6,7\n")
         print(dinners_string)
@@ -85,7 +85,7 @@ def validate_csv(csv_input):
                     if input is not a number
                     if input is not in the range of available options
     """
-    print("Validating input...\n")
+    print("\nValidating input...\n")
     try:
         # Check if input is exactly 7 values
         if len(csv_input) != 7:
@@ -103,7 +103,7 @@ def validate_csv(csv_input):
 
     # Return False if ValueError is raised
     except ValueError as e:
-        print(f"Input was not valid: {e}, please try again.\n")
+        print(f"Input was not valid: {e}.\n Please try again.\n")
         return False
 
     return True
@@ -129,14 +129,14 @@ def calculate_shopping_list(dinner_picks):
 
         ing_data = ingredients.col_values(dinner)
         quan_data = quantities.col_values(dinner)
-        
+
         # Pop the first value off to remove the name of the selected dinner
         ing_data.pop(0)
         quan_data.pop(0)
-        
+
         # Zip the ingredient and quantity data into a dictionary
         recipe_dict = dict(zip(ing_data, quan_data))
-        
+
         # Check if the ingredient is already in the shopping list and either
         # Add to the quantity value if already present or add as new ingredient
         for ing, quan in recipe_dict.items():
