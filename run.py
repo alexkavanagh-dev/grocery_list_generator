@@ -61,7 +61,7 @@ def get_dinner_picks(dinners_string):
         # input is not valid and the user is asked for input again. While loop
         # breaks when True is returned and input is valid.
         if validate_csv(dinners_split):
-            print("\nInput is valid!\n")
+            print("Input is valid!\n")
             break
 
     dinners_int = [int(dinner) for dinner in dinners_split]
@@ -158,8 +158,6 @@ def print_shopping_list(shopping_list):
     print("Your grocery list will be printed below:\n")
     for x, y in shopping_list.items():
         print(x + " : " + str(y))
-    
-    print("Thank you for using my grocery list generator!")
 
 
 def main():
@@ -171,5 +169,15 @@ def main():
     shopping_list = calculate_shopping_list(dinner_picks)
     print_shopping_list(shopping_list)
 
+    try_again = input("\nEnter y to use this program again or any other key"
+                      " to exit: ").strip().lower()
 
-main()
+    if try_again == "y":
+        main()
+
+    else:
+        print("\nThank you for using my grocery list generator!")
+
+
+if __name__ == "__main__":
+    main()
