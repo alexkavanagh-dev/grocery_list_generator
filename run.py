@@ -163,7 +163,6 @@ def print_shopping_list(shopping_list):
 def main():
     """Run all program fuctions
     """
-    print("Welcome to my grocery list generator!\n")
     dinners_string = generate_dinners_string()
     dinner_picks = get_dinner_picks(dinners_string)
     shopping_list = calculate_shopping_list(dinner_picks)
@@ -180,4 +179,5 @@ def main():
 
 
 if __name__ == "__main__":
+    print("Welcome to my grocery list generator!\n")
     main()
