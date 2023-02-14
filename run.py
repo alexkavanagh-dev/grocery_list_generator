@@ -103,7 +103,7 @@ def validate_csv(csv_input):
 
     # Return False if ValueError is raised
     except ValueError as e:
-        print(f"Input was not valid: {e}.\n Please try again.\n")
+        print(f"Input was not valid: {e}.\nPlease try again.\n")
         return False
 
     return True
@@ -122,7 +122,7 @@ def calculate_shopping_list(dinner_picks):
     """
     shopping_list = dict()
 
-    print("Calculating Shopping list...\n")
+    print("Calculating grocery list...\n")
 
     # Loop through values from the user to get the ingredient and quantity data
     for dinner in dinner_picks:
@@ -155,15 +155,17 @@ def print_shopping_list(shopping_list):
         shopping_list: list: The caclulated ingredients and quantities
         for the dinners selected by the user.
     """
-    print("Your shopping list will be printed below:\n")
+    print("Your grocery list will be printed below:\n")
     for x, y in shopping_list.items():
         print(x + " : " + str(y))
+    
+    print("Thank you for using my grocery list generator!")
 
 
 def main():
     """Run all program fuctions
     """
-    print("Welcome to my shopping list generator!\n")
+    print("Welcome to my grocery list generator!\n")
     dinners_string = generate_dinners_string()
     dinner_picks = get_dinner_picks(dinners_string)
     shopping_list = calculate_shopping_list(dinner_picks)
